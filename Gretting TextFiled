@@ -1,0 +1,36 @@
+import 'package:flutter/material.dart';
+
+class ToDo extends StatefulWidget {
+  const ToDo({super.key});
+
+  @override
+  State<ToDo> createState() => _ToDoState();
+}
+
+class _ToDoState extends State<ToDo> {
+  TextEditingController textt = TextEditingController();
+
+  String greeting = "";
+
+  void greet() {
+    setState(() {
+      greeting = "hello, " + textt.text;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(greeting),
+          TextField(
+            controller: textt,
+          ),
+          ElevatedButton(onPressed: greet, child: Text('Tap'))
+        ],
+      ),
+    );
+  }
+}
