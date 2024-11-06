@@ -1,0 +1,43 @@
+import 'package:apkk/aa.dart';
+import 'package:flutter/material.dart';
+
+class mySquare extends StatelessWidget {
+  final List posts = [
+    'Post 1',
+    'Post 2',
+    'Post 3',
+    'Post 4',
+    'Post 5',
+  ];
+  mySquare({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: ListView.builder(
+        itemCount: posts.length,
+        itemBuilder: (context, index) {
+          return aii(child: posts[index]);
+        },
+      ),
+    );
+  }
+}
+
+class aii extends StatelessWidget {
+  final String child;
+
+  const aii({super.key, required this.child});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.symmetric(vertical: 8.0),
+      child: Container(
+        height: 400,
+        color: Colors.deepPurple[200],
+        child: Text(child),
+      ),
+    );
+  }
+}
