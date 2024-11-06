@@ -1,0 +1,47 @@
+import 'package:apkk/home.dart';
+import 'package:apkk/profile.dart';
+import 'package:apkk/search.dart';
+import 'package:apkk/settings.dart';
+import 'package:flutter/material.dart';
+
+class Homepage extends StatefulWidget {
+  const Homepage({super.key});
+
+  @override
+  State<Homepage> createState() => _HomepageState();
+}
+
+class _HomepageState extends State<Homepage> {
+  int selecthome = 0;
+
+  void navigate(int index) {
+    setState(() {
+      selecthome = index;
+    });
+  }
+
+  final List<Widget> pages = [
+    Home(),
+    Searchpage(),
+    Settings(),
+    Profile(),
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        body: pages[selecthome],
+        bottomNavigationBar: BottomNavigationBar(
+          currentIndex: selecthome,
+          onTap: navigate,
+          type: BottomNavigationBarType.fixed,
+          items: const [
+            BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+            BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Search'),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.settings), label: 'Settings'),
+            BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
+          ],
+        ));
+  }
+}
