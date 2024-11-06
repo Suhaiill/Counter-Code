@@ -1,0 +1,53 @@
+import 'package:flutter/material.dart';
+
+class Homepage extends StatefulWidget {
+  const Homepage({super.key});
+
+  @override
+  State<Homepage> createState() => _HomepageState();
+}
+
+class _HomepageState extends State<Homepage> {
+  double boxHeight = 100;
+  double boxWidth = 100;
+  var colorr = Colors.deepPurple;
+
+  void tap() {
+    setState(() {
+      boxHeight = 300;
+      boxWidth = 300;
+    });
+  }
+
+  // void ttap() {
+  //   setState(() {
+  //     boxHeight = 100;
+  //     boxWidth = 100;
+  //   });
+  // }
+
+  void colr() {
+    setState(() {
+      colorr = Colors.pink;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onDoubleTap: colr,
+      onTap: tap,
+      child: Scaffold(
+        backgroundColor: Colors.deepPurple[200],
+        body: Center(
+          child: AnimatedContainer(
+            duration: Duration(seconds: 1),
+            width: boxWidth,
+            height: boxHeight,
+            color: colorr,
+          ),
+        ),
+      ),
+    );
+  }
+}
