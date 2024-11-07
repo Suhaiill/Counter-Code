@@ -1,0 +1,44 @@
+import 'package:flutter/material.dart';
+
+class Homepage extends StatefulWidget {
+  const Homepage({super.key});
+
+  @override
+  State<Homepage> createState() => _HomepageState();
+}
+
+class _HomepageState extends State<Homepage>
+    with SingleTickerProviderStateMixin {
+  late AnimationController animationControler;
+  bool vedioplaying = false;
+
+  @override
+  void initState() {
+    super.initState();
+    animationControler =
+        AnimationController(vsync: this, duration: Duration(seconds: 1));
+  }
+
+  void animatedd() {
+    if (vedioplaying == false) {
+      animationControler.forward();
+      vedioplaying = true;
+    } else {
+      animationControler.reverse();
+      vedioplaying = false;
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: GestureDetector(
+          onTap: animatedd,
+          child: AnimatedIcon(
+              icon: AnimatedIcons.play_pause, progress: animationControler),
+        ),
+      ),
+    );
+  }
+}
