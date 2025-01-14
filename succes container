@@ -3,8 +3,9 @@ void showConfirmationMessage() {
     final overlay = Overlay.of(context);
     final overlayEntry = OverlayEntry(
       builder: (context) => Positioned(
-        top: MediaQuery.of(context).size.height * 0.4,
-        left: MediaQuery.of(context).size.width * 0.2,
+       top: MediaQuery.of(context).size.height * 0.1, // 10% من أعلى الشاشة
+        left: MediaQuery.of(context).size.width * 0.25, // 25% من اليسار
+        right: MediaQuery.of(context).size.width * 0.25, // 25% من اليمين
         child: Material(
           color: Colors.transparent,
           child: Container(
