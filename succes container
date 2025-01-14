@@ -1,22 +1,27 @@
-void showConfirmationMessage() {
+ void showConfirmationMessage() {
     // إنشاء OverlayEntry
     final overlay = Overlay.of(context);
     final overlayEntry = OverlayEntry(
       builder: (context) => Positioned(
-       top: MediaQuery.of(context).size.height * 0.1, // 10% من أعلى الشاشة
+        top: MediaQuery.of(context).size.height * 0.1, // 10% من أعلى الشاشة
         left: MediaQuery.of(context).size.width * 0.25, // 25% من اليسار
         right: MediaQuery.of(context).size.width * 0.25, // 25% من اليمين
         child: Material(
           color: Colors.transparent,
-          child: Container(
-            padding: const EdgeInsets.all(16),
-            decoration: BoxDecoration(
-              color: Colors.green,
-              borderRadius: BorderRadius.circular(8),
-            ),
-            child: const Text(
-              'User Added',
-              style: TextStyle(color: Colors.white, fontSize: 16),
+          child: Padding(
+            padding: const EdgeInsets.only(left: 60.0, right: 60),
+            child: Container(
+              padding: const EdgeInsets.all(8),
+              decoration: BoxDecoration(
+                color: Colors.black,
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: Center(
+                child: const Text(
+                  'User Added',
+                  style: TextStyle(color: Colors.white, fontSize: 16),
+                ),
+              ),
             ),
           ),
         ),
